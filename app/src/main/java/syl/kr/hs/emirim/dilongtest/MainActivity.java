@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("first Dialog");
         dialog.setIcon(R.mipmap.ic_launcher);
-        /*//dialog.setMessage("여기는 메세지를 쓰는 곳입니다");
+     /*   dialog.setMessage("여기는 메세지를 쓰는 곳입니다");
         dialog.setItems(itemArr, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 butDialog.setText(itemArr[i]);
             }
         });
-    ctrl+shift+/ ==> 주석*/
+    ctrl+shift+/ ==> 주석
         //라디오 버튼
         dialog.setSingleChoiceItems(itemArr,0,new DialogInterface.OnClickListener() {
             @Override
@@ -37,7 +37,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 butDialog.setText(itemArr[i]);
             }
         });
-      //  dialog.setPositiveButton("Ok",null);
+      //  dialog.setPositiveButton("Ok",null);*/
+
+     //체크박스 목록
+        //선택여부 배열
+        boolean[] checkedItems={true,false,true,false};
+        dialog.setMultiChoiceItems(itemArr, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                if(b){
+                butDialog.setText(itemArr[i]);}
+
+            }
+        });
+
         dialog.show();
 
     }
